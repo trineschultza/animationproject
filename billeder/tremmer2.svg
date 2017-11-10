@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8002" height="1802" viewBox="0 0 8002 1802">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #525252;
+      }
+
+      .cls-2 {
+        fill: #444;
+        opacity: 0.4;
+      }
+
+      .cls-3 {
+        fill: #ddc4a7;
+      }
+
+      .cls-4 {
+        fill: #eaccad;
+      }
+
+      .cls-5 {
+        fill: red;
+      }
+
+      .cls-6 {
+        fill: none;
+      }
+    </style>
+    <symbol id="t4" data-name="t4" viewBox="0 0 1602 900">
+      <g id="Baggrund1_copy_4" data-name="Baggrund1 copy 4">
+        <rect class="cls-2" width="1600" height="316"/>
+      </g>
+      <g id="tremmer_copy_4" data-name="tremmer copy 4">
+        <rect class="cls-1" x="359" width="54" height="316"/>
+        <rect class="cls-1" x="568" width="54" height="316"/>
+        <rect class="cls-1" x="134" width="54" height="316"/>
+        <rect class="cls-1" x="1198" width="54" height="316"/>
+        <polyline class="cls-1" points="1.5 316.5 1601.5 316.5 1602 270 2 270"/>
+        <rect class="cls-1" x="992" width="54" height="316"/>
+        <rect class="cls-1" x="783" width="54" height="316"/>
+        <rect class="cls-1" x="1402" width="54" height="316"/>
+      </g>
+      <rect id="baggrund2" class="cls-6" width="1600" height="900"/>
+    </symbol>
+    <symbol id="t3" data-name="t3" viewBox="0 0 1600.5 900">
+      <g id="Baggrund1_copy_3" data-name="Baggrund1 copy 3">
+        <rect class="cls-2" x="0.5" width="1600" height="587"/>
+      </g>
+      <g id="tremmer_copy_3" data-name="tremmer copy 3">
+        <rect class="cls-1" x="359.5" width="54" height="587"/>
+        <rect class="cls-1" x="568.5" width="54" height="587"/>
+        <rect class="cls-1" x="134.5" width="54" height="587"/>
+        <rect class="cls-1" x="1198.5" width="54" height="587"/>
+        <polyline class="cls-1" points="0 587.5 1600 587.5 1600.5 541 0.5 541"/>
+        <rect class="cls-1" x="992.5" width="54" height="587"/>
+        <rect class="cls-1" x="783.5" width="54" height="587"/>
+        <rect class="cls-1" x="1402.5" width="54" height="587"/>
+      </g>
+      <rect id="baggrund2-2" data-name="baggrund2" class="cls-6" x="0.5" width="1600" height="900"/>
+    </symbol>
+    <symbol id="t2" data-name="t2" viewBox="0 0 1600.5 900">
+      <g id="Baggrund1_copy_2" data-name="Baggrund1 copy 2">
+        <rect class="cls-2" x="0.5" width="1600" height="752"/>
+      </g>
+      <g id="tremmer_copy_2" data-name="tremmer copy 2">
+        <rect class="cls-1" x="359.5" width="54" height="752"/>
+        <rect class="cls-1" x="568.5" width="54" height="752"/>
+        <rect class="cls-1" x="134.5" width="54" height="752"/>
+        <rect class="cls-1" x="1198.5" width="54" height="752"/>
+        <polyline class="cls-1" points="0 752.5 1600 752.5 1600.5 706 0.5 706"/>
+        <rect class="cls-1" x="992.5" width="54" height="752"/>
+        <rect class="cls-1" x="783.5" width="54" height="752"/>
+        <rect class="cls-1" x="1402.5" width="54" height="752"/>
+      </g>
+      <rect id="baggrund2-3" data-name="baggrund2" class="cls-6" x="0.5" width="1600" height="900"/>
+    </symbol>
+    <symbol id="t1" data-name="t1" viewBox="0 0 1600.5 900.5">
+      <g id="Baggrund1_copy" data-name="Baggrund1 copy">
+        <rect class="cls-2" x="0.5" width="1600" height="900"/>
+      </g>
+      <g id="tremmer_copy" data-name="tremmer copy">
+        <polyline class="cls-1" points="0.5 0 1600.5 0 1600 46.5 0 46.5"/>
+        <rect class="cls-1" x="359.5" y="46.5" width="54" height="807.5"/>
+        <rect class="cls-1" x="568.5" y="46.5" width="54" height="807.5"/>
+        <rect class="cls-1" x="134.5" y="46.5" width="54" height="807.5"/>
+        <rect class="cls-1" x="1198.5" y="46.5" width="54" height="807.5"/>
+        <polyline class="cls-1" points="0 900.5 1600 900.5 1600.5 854 0.5 854"/>
+        <rect class="cls-1" x="992.5" y="46.5" width="54" height="807.5"/>
+        <rect class="cls-1" x="783.5" y="46.5" width="54" height="807.5"/>
+        <rect class="cls-1" x="1402.5" y="46.5" width="54" height="807.5"/>
+      </g>
+      <rect id="baggrund2-4" data-name="baggrund2" class="cls-6" x="0.5" width="1600" height="900"/>
+    </symbol>
+    <symbol id="dame" data-name="dame" viewBox="0 0 1600.5 900.5">
+      <g id="tremmer">
+        <rect class="cls-1" x="359.5" y="46.5" width="54" height="807.5"/>
+        <rect class="cls-1" x="568.5" y="46.5" width="54" height="807.5"/>
+        <rect class="cls-1" x="1402.5" y="46.5" width="54" height="807.5"/>
+        <rect class="cls-1" x="1198.5" y="46.5" width="54" height="807.5"/>
+        <rect class="cls-1" x="992.5" y="46.5" width="54" height="807.5"/>
+        <rect class="cls-1" x="783.5" y="46.5" width="54" height="807.5"/>
+        <rect class="cls-1" x="134.5" y="46.5" width="54" height="807.5"/>
+        <polyline class="cls-1" points="0 900.5 1600 900.5 1600.5 854 0.5 854"/>
+        <polyline class="cls-1" points="0.5 0 1600.5 0 1600 46.5 0 46.5"/>
+      </g>
+      <g id="baggrund1">
+        <rect class="cls-2" x="0.5" width="1600" height="900"/>
+      </g>
+      <g>
+        <path class="cls-3" d="M442.5,609h27s12,2,16,20c0,0,0,10-14,20h-29Z"/>
+        <path class="cls-3" d="M404.5,629h-23s0,22,23,21Z"/>
+        <path class="cls-3" d="M468.5,691s18,3,19,21c0,0,3,20-19,23h-66s-24-3-23-22c0,0,3-22,21-22"/>
+        <path class="cls-4" d="M444.5,649h35s19,3,18,22c0,0,4,14-17,22h-79s-22-5-21-22c0,0-2-18,19-22Z"/>
+        <path class="cls-4" d="M402.5,734s-24,7-22,21c0,0,0,20,22,22s57,0,57,0,17-4,18-21-15-22-15-22Z"/>
+        <path class="cls-3" d="M404.5,629v29s2,10,18,13c0,0,10,0,18-11,0,0,4-6,3-7s0-47,0-47-4-16-12-18-79,0-79,0-34,0-34,41V735s-1,39,42,41V629Z"/>
+        <path class="cls-5" d="M424.5,638h10s7,3,5,16-15,13-15,13-3,4-12-6c0,0-6-23,3-23Z"/>
+        <path class="cls-5" d="M389.5,630h14v13S390.5,645,389.5,630Z"/>
+        <path class="cls-5" d="M415.5,756v-7s-17-24-26,4c0,0-1,29,26,11Z"/>
+        <path class="cls-5" d="M415.5,715v-7s-17-24-26,4c0,0-1,29,26,11Z"/>
+        <path class="cls-5" d="M414.5,672v-7s-17-24-26,4c0,0-1,29,26,11Z"/>
+      </g>
+      <g>
+        <path class="cls-3" d="M1168.8,609h-27s-12,2-16,20c0,0,0,10,14,20h29Z"/>
+        <path class="cls-3" d="M1206.8,629h23s0,22-23,21Z"/>
+        <path class="cls-3" d="M1142.8,691s-18,3-19,21c0,0-3,20,19,23h66s24-3,23-22c0,0-3-22-21-22"/>
+        <path class="cls-4" d="M1166.8,649h-35s-19,3-18,22c0,0-4,14,17,22h79s22-5,21-22c0,0,2-18-19-22Z"/>
+        <path class="cls-4" d="M1208.8,734s24,7,22,21c0,0,0,20-22,22s-57,0-57,0-17-4-18-21,15-22,15-22Z"/>
+        <path class="cls-3" d="M1206.8,629v29s-2,10-18,13c0,0-10,0-18-11,0,0-4-6-3-7s0-47,0-47,4-16,12-18,79,0,79,0,34,0,34,41V735s1,39-42,41V629Z"/>
+        <path class="cls-5" d="M1186.8,638h-10s-7,3-5,16,15,13,15,13,3,4,12-6c0,0,6-23-3-23Z"/>
+        <path class="cls-5" d="M1221.8,630h-14v13S1220.8,645,1221.8,630Z"/>
+        <path class="cls-5" d="M1195.8,756v-7s17-24,26,4c0,0,1,29-26,11Z"/>
+        <path class="cls-5" d="M1195.8,715v-7s17-24,26,4c0,0,1,29-26,11Z"/>
+        <path class="cls-5" d="M1196.8,672v-7s17-24,26,4c0,0,1,29-26,11Z"/>
+      </g>
+      <polygon class="cls-3" points="319.5 655.43 1.5 819 1.5 900 112.5 900 319.5 735 319.5 655.43"/>
+      <polygon class="cls-3" points="1282.5 655.43 1600.5 819 1600.5 900 1489.5 900 1282.5 735 1282.5 655.43"/>
+      <rect id="baggrund2-5" data-name="baggrund2" class="cls-6" x="0.5" width="1600" height="900"/>
+    </symbol>
+  </defs>
+  <title>Asset 7</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="mand5">
+      <g>
+        <use width="1602" height="900" transform="translate(0 1)" xlink:href="#t4"/>
+        <use width="1600.5" height="900" transform="translate(1600 3)" xlink:href="#t3"/>
+        <use width="1600.5" height="900" transform="translate(3200 1)" xlink:href="#t2"/>
+        <use width="1600.5" height="900.5" transform="translate(4802)" xlink:href="#t1"/>
+        <use width="1600.5" height="900.5" transform="translate(6402 1)" xlink:href="#dame"/>
+        <use width="1600.5" height="900.5" transform="translate(1 902)" xlink:href="#dame"/>
+      </g>
+    </g>
+  </g>
+</svg>
