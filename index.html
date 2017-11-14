@@ -1,97 +1,100 @@
 <!DOCTYPE html>
 <html lang="da">
 
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#MinGrænse | Sex og Samfund</title>
     <link rel="stylesheet" href="style.css">
-  </head>
+</head>
 
-  <body>
+<body>
     <div id="scene">
-	 <div id="startside"><button id="startButton" onClick="start()" class="button">Start</button></div>
-	 <div id="city1">
-	   <button id="pige" onClick="KarakterValg('pige')" class="button">Pige</button><button id="dreng" onClick="KarakterValg('dreng')" class="button">Dreng</button>
-	   <div id="dreng_figur"></div>
-	   <div id="pige_figur"></div>
-	   <div id="drenge_haand"></div>
-	   <div id="pige_haand"></div>
-	   <div id="pige_haand_snap"><button id="snap_icon" onClick="vis_besked()"></button></div>
-	   <div id="dickpic"></div>
-	   <div id="pige_haand_fri"></div>
-	   <div id="h"></div>
-	 </div>
-	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <div id="startside"><button id="startButton" onClick="start()" class="button">Start</button></div>
+        <div id="city1">
+            <button id="pige" onClick="KarakterValg('pige')" class="button">Pige</button><button id="dreng" onClick="KarakterValg('dreng')" class="button">Dreng</button>
+            <div id="dreng_figur"></div>
+            <div id="pige_figur"></div>
+            <div id="drenge_haand"></div>
+            <div id="pige_haand"></div>
+            <div id="pige_haand_snap"><button id="snap_icon" onClick="vis_besked()"></button></div>
+            <div id="dickpic"></div>
+            <div id="pige_haand_fri"></div>
+            <div id="h"></div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script type="text/javascript">
-function start() {
-  $("#startside").css("display", "none");
-  $("#city1").css("display", "block");
-  $.playSound('lyd/Drums1.mp3');
-  $("#dreng").addClass("valg_af_karakter");
-  $("#pige").addClass("valg_af_karakter");
-  $("#pige_figur").css("display", "block");
-  $("#dreng_figur").css("display", "block");
-}
-
-function KarakterValg(karakter) {
-   $.stopSound('lyd/Drums1.mp3');
-   $.playSound('lyd/bensound-sexy.mp3', 'loop');
-   $("#dreng").css("display", "none");
-   $("#pige").css("display", "none");
-
- // var h = Math.floor((Math.random() * 4) + 1);if (h == 1) {$("#h").css("display", "block");$("#pige_figur").css("display", "none");$("#dreng_figur").css("display", "none");setTimeout(function() {$("#h").css("display", "none");}, 7000);} else {
-  if (karakter == 'dreng') {
-    $("#dreng_figur").addClass("flyt_dreng_figur");
-    $("#pige_figur").css("display", "none");
-    $("#dreng_haand").css("display", "block");
-  } else { // Pige
-    $("#pige_figur").addClass("flyt_pige_figur");
-    $("#dreng_figur").css("display", "none");
-    $("#pige_haand").css("display", "block");
-	setTimeout(function() {
-	  $("#pige_haand").addClass("modtag_besked");$.playSound('lyd/message.mp3', false);
-	  setTimeout(function() {
-	    $("#pige_haand").css("display", "none");
-		$("#pige_haand_snap").css("display", "block");
-		$("#pige_haand_fri").css("display", "block");
-	  }, 1000);
-	}, 3000);
-  }
- // }
-}
-
-function vis_besked() {
-  $("#pige_haand_fri").addClass("snap_ikon_tryk");
-  setTimeout(function() {
-    $("#pige_haand_snap").css("display", "none");
-	$("#dickpic").css("display", "block");
-	
-	$("#pige_haand_fri").removeClass("snap_ikon_tryk");
-	$("#pige_haand_fri").addClass("pige_haand_fri_pos");
-	$("#pige_haand_fri").addClass("pige_haand_fri_flyt");
-  }
-  , 2200);
-}
-
-(function ($) {
-    $.extend({
-        playSound: function (sound_file, loop_audio=true) {
-		    if (loop_audio==true){loop_audio=' loop';}
-            return $(
-                   '<audio class="sound-player" autoplay="autoplay"' + loop_audio + ' style="display:none;">'
-                     + '<source src="' + sound_file + '" />'
-                     + '<embed src="' + sound_file + '" hidden="true" autostart="true" '+ loop_audio +'>'
-                   + '</audio>'
-                 ).appendTo('body');
-        },
-        stopSound: function () {
-            $(".sound-player").remove();
+        function start() {
+            $("#startside").css("display", "none");
+            $("#city1").css("display", "block");
+            $.playSound('lyd/Drums1.mp3');
+            $("#dreng").addClass("valg_af_karakter");
+            $("#pige").addClass("valg_af_karakter");
+            $("#pige_figur").css("display", "block");
+            $("#dreng_figur").css("display", "block");
         }
-    });
-})(jQuery);
-	</script>
-  </body>
+
+        function KarakterValg(karakter) {
+            $.stopSound('lyd/Drums1.mp3');
+            $.playSound('lyd/bensound-sexy.mp3', 'loop');
+            $("#dreng").css("display", "none");
+            $("#pige").css("display", "none");
+
+            // var h = Math.floor((Math.random() * 4) + 1);if (h == 1) {$("#h").css("display", "block");$("#pige_figur").css("display", "none");$("#dreng_figur").css("display", "none");setTimeout(function() {$("#h").css("display", "none");}, 7000);} else {
+            if (karakter == 'dreng') {
+                $("#dreng_figur").addClass("flyt_dreng_figur");
+                $("#pige_figur").css("display", "none");
+                $("#dreng_haand").css("display", "block");
+            } else { // Pige
+                $("#pige_figur").addClass("flyt_pige_figur");
+                $("#dreng_figur").css("display", "none");
+                $("#pige_haand").css("display", "block");
+                setTimeout(function() {
+                    $("#pige_haand").addClass("modtag_besked");
+                    $.playSound('lyd/message.mp3', false);
+                    setTimeout(function() {
+                        $("#pige_haand").css("display", "none");
+                        $("#pige_haand_snap").css("display", "block");
+                        $("#pige_haand_fri").css("display", "block");
+                    }, 1000);
+                }, 3000);
+            }
+            // }
+        }
+
+        function vis_besked() {
+            $("#pige_haand_fri").addClass("snap_ikon_tryk");
+            setTimeout(function() {
+                $("#pige_haand_snap").css("display", "none");
+                $("#dickpic").css("display", "block");
+
+                $("#pige_haand_fri").removeClass("snap_ikon_tryk");
+                $("#pige_haand_fri").addClass("pige_haand_fri_pos");
+                $("#pige_haand_fri").addClass("pige_haand_fri_flyt");
+            }, 2200);
+        }
+
+        (function($) {
+            $.extend({
+                playSound: function(sound_file, loop_audio = true) {
+                    if (loop_audio == true) {
+                        loop_audio = ' loop';
+                    }
+                    return $(
+                        '<audio class="sound-player" autoplay="autoplay"' + loop_audio + ' style="display:none;">' +
+                        '<source src="' + sound_file + '" />' +
+                        '<embed src="' + sound_file + '" hidden="true" autostart="true" ' + loop_audio + '>' +
+                        '</audio>'
+                    ).appendTo('body');
+                },
+                stopSound: function() {
+                    $(".sound-player").remove();
+                }
+            });
+        })(jQuery);
+
+    </script>
+</body>
 
 </html>
