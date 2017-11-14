@@ -15,11 +15,10 @@ function KarakterValg(karakter) {
    // Som vi bruger senere til, blandt andet, at vælge grafik filer.
    valg = karakter;
    $.stopSound('lyd/Drums1.mp3');
-   $.playSound('lyd/bensound-sexy.mp3', 'loop');
+   $.playSound('lyd/bensound-sexy.mp3', 'loop', 'music');
    $("#dreng").css("display", "none");
    $("#pige").css("display", "none");
    $("#game").css("background", "url(billeder/"+valg+"værelse.svg) no-repeat");
-  // var h = Math.floor((Math.random() * 4) + 1);if (h == 1) {$("#h").css("display", "block");$("#pige_figur").css("display", "none");$("#dreng_figur").css("display", "none");setTimeout(function() {$("#h").css("display", "none");}, 7000);} else {
     $("#"+valg+"_figur").addClass("flyt_dreng_figur");
     if (valg == "dreng") {$("#pige_figur").css("display", "none");} else {$("#dreng_figur").css("display", "none");}
 	$("#telefon").css("display", "block");
@@ -33,8 +32,6 @@ function KarakterValg(karakter) {
 		$("#haand_fri").css("background", "url(billeder/"+valg+"hånd2.svg) no-repeat");
 	  }, 1000);
 	}, 3000);
-
- // }
 }
 
 function vis_besked() {
@@ -55,6 +52,7 @@ function vis_besked() {
 }
 
 function videresend_besked() {
+  $("#music").prop("volume", 0.3);
   $("#game").css("background", "url(billeder/vindue.svg) no-repeat");
   $("#telefon").css("display", "none"); 
   $("#haand_fri").css("display", "none");
@@ -75,14 +73,15 @@ function slet_besked() {
 }
 
 function goToJail() {
+	$("#music").prop("volume", 1);
 	$("#scene").css("background", "url(billeder/"+valg+"værelse.svg) no-repeat");
 	$("#game").css("background", "url(billeder/tremmer.svg) no-repeat");
-	$.stopSound('lyd/bensound-sexy.mp3');
 	$.playSound('lyd/prison.mp3', false);
 	$("#game").addClass("busted");
 	$("#"+valg+"_figur").css("display", "none");
 	setTimeout(function(){
-	$("#game").css("background", "url(billeder/"+valg+"_tremmer.svg) no-repeat");
+	  $("#game").css("background", "url(billeder/"+valg+"_tremmer.svg) no-repeat");
+	  $.stopSound('lyd/bensound-sexy.mp3');
 	},4000)
 }
 
@@ -105,6 +104,16 @@ function show_credit_item(item, changeTime) {
 function show_sprite(bgSprite, changeTime) {
 	  setTimeout(function(){
 	    $("#game").css("background", "url(billeder/city/city_sprite_"+bgSprite+".svg) no-repeat");
+	    
+	    if (bgSprite==9) { // city_sprite_9.svg
+	      $.playSound('lyd/adhvorklamt.mp3', false); // "Ad hvor klamt"
+	    } else if (bgSprite==13) { // city_sprite_13.svg
+	      $.playSound('lyd/hvorforsendermansådannoget.mp3', false); // "Hvorfor sender man sådan noget"
+	    } else if (bgSprite==17) { // city_sprite_13.svg
+	      $.playSound('lyd/fuckhvorpinligt.mp3', false); // "Fuck hvor pinligt!"
+	    } else if (bgSprite==21) { // city_sprite_21.svg
+	      $.playSound('lyd/hvemerdet.mp3', false); // "Hvem er det?!"
+	    }
 	  }, changeTime);
 }
 function preload_svg(svgFile) {
@@ -116,10 +125,11 @@ function preload_svg(svgFile) {
 	}
 (function ($) {
     $.extend({
-        playSound: function (sound_file, loop_audio=true) {
+        playSound: function (sound_file, loop_audio=true, eID='') {
+        	if (eID !== '') {eID = ' id="' + eID + '"';}
 		    if (loop_audio==true){loop_audio=' loop';}
             return $(
-                   '<audio class="sound-player" autoplay="autoplay"' + loop_audio + ' style="display:none;">'
+                   '<audio class="sound-player" autoplay="autoplay"' + loop_audio + ' style="display:none;"'+eID+'>'
                      + '<source src="' + sound_file + '">'
                      + '<embed src="' + sound_file + '" hidden="true" autostart="true" '+ loop_audio +'>'
                    + '</audio>'

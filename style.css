@@ -1,26 +1,28 @@
 * {margin:0;padding:0;}
 body,html {width:100%;height:100%;overflow:hidden;background:rgb(25,25,25);}
 #scene {width:80vw;height:45vw;margin:0.2em auto;overflow:hidden;}
-#city1 {display:none;background:url("billeder/city_sprite.svg") no-repeat;width:100%;height:100%;background-size:700%;background-position:0% 0;position:relative;}
+#game {display:none;background:url("billeder/vindue.svg") no-repeat;width:100%;height:100%;background-size:cover;background-position:0% 0;position:relative;}
 #startside {width:100%;height:100%;background:url("billeder/startside.svg") no-repeat;background-size:contain;position:relative;}
 #startside #startButton {position:absolute;bottom:5%;right:3%;}
 
-#city1 #dreng_figur {position:absolute;top:10%;left:20%;display:none;width:10%;height:40%;background: url("billeder/dreng.svg") no-repeat;}
-#city1 #pige_figur {position:absolute;top:10%;right:10%;display:none;width:10%;height:40%;background: url("billeder/pige.svg") no-repeat;}
-#city1 button#dreng {position:absolute;top:40%;left:10%;}
-#city1 button#pige {position:absolute;top:40%;right:10%;}
+#game #dreng_figur {position:absolute;top:10%;left:20%;display:none;width:10%;height:40%;background:url("billeder/dreng.svg") no-repeat;}
+#game #pige_figur {position:absolute;top:10%;right:10%;display:none;width:10%;height:40%;background:url("billeder/pige.svg") no-repeat;}
+#game button#dreng {position:absolute;top:40%;left:10%;}
+#game button#pige {position:absolute;top:40%;right:10%;}
 
-#drenge_haand {display:none;}
-#pige_haand {display:none;position:absolute;bottom:-0.2em;left:40%;width:40%;height:60%;background:url("billeder/pigehånd_facebook.svg") no-repeat;background-size:contain;}
-#pige_haand_fri {display:none;position:absolute;left:77%;bottom:-40%;width:30%;height:60%;background:url("billeder/pigehånd2.svg") no-repeat;background-size:contain;}
-  .pige_haand_fri_pos {bottom:-10%;left:45%;}
-#pige_haand_snap {display:none;position:absolute;bottom:-0.2em;left:40%;width:40%;height:60%;background:url("billeder/pigehånd_snap.svg") no-repeat;background-size:contain;}
-button#snap_icon {position:absolute;top:25%;left:17%;width:13%;height:14%;cursor:pointer;background:none;border:none;}
+#telefon {display:none;position:absolute;bottom:-0.2em;left:40%;width:40%;height:60%;background-size:contain;}
+#haand_fri {display:none;position:absolute;left:77%;bottom:-40%;width:30%;height:60%;background-size:contain;}
+  .haand_fri_pos {bottom:-10%;left:45%;}
+button#snap_button {display:none;position:absolute;top:25%;left:17%;width:13%;height:14%;cursor:pointer;background:none;border:none;}
+button#videresend_button {display:none;position:absolute;bottom:40%;left:10%;width:20%;height:10%;background:rgba(0,0,0, 0.2);border:none;color:#fff;}
+button#slet_button {display:none;position:absolute;top:30%;left:10%;width:20%;height:10%;background:rgba(0,0,0, 0.2);border:none;color:#fff;}
+button#slet_button:hover {background:rgba(0,0,0, 0.4)}
+button#videresend_button:hover {background:rgba(0,0,0, 0.4)}
 button:active {outline:none;border:none;}
 button:focus {outline:none;}
 button:hover {cursor:pointer;}
-#dickpic {display:none;position:absolute;bottom:-0.2em;left:40%;width:40%;height:60%;background:url("billeder/dickpic.svg") no-repeat;background-size:contain;}
-
+#dickpic {display:none;position:absolute;bottom:-0.2em;left:40%;width:40%;height:60%;background-size:contain;}
+#preloader {position:absolute;top:-1px;}
 .button {width:30vw;height:10vw;background:rgba(247,147,30, 0.8);display:block;font-size:6vw;color:#fff;border:none;}
 .button:hover {background:rgba(250,250,250, 0.8);color:#000;}
 
@@ -30,18 +32,20 @@ button:hover {cursor:pointer;}
 .valg_af_karakter {animation:valg_af_karakter 0.5s forwards;transform:scale(0.5, 0.5);}
 .modtag_besked {animation:modtag_besked 0.1s 10 alternate;}
 .snap_ikon_tryk {animation:snap_ikon_tryk 2s forwards;}
-.pige_haand_fri_flyt {animation:pige_haand_fri_flyt 3s forwards;}
+.haand_fri_flyt {animation:haand_fri_flyt 3s forwards;}
+.busted {position:absolute;top:-80vw;animation:busted 3s forwards;}
+.zoom_telefon {animation:zoom_telefon 3s forwards;}
 @keyframes valg_af_karakter {
     from {top:40%;transform:scale(0.5, 0.5);}
     to {top:60%;transform:scale(1, 1);}
 }
 @keyframes flyt_pige_figur {
     from {top:10%;right:10%;transform:scale(1, 1);}
-    to {top:75%;right:5%;transform:scale(2, 2);}
+    to {top:85%;right:5%;transform:scale(2, 2);}
 }
 @keyframes flyt_dreng_figur {
     from {top:10%;left:20%;transform:scale(1, 1);}
-    to {top:75%;left:84%;transform:scale(2, 2);}
+    to {top:85%;left:84%;transform:scale(2, 2);}
 }
 @keyframes modtag_besked {
     from {transform:rotate(1deg)}
@@ -53,10 +57,18 @@ button:hover {cursor:pointer;}
 	90% {transform:rotate(-3deg);}
     100% {bottom:-12%;left:46%;transform:rotate(0deg);}
 }
-@keyframes pige_haand_fri_flyt {
+@keyframes haand_fri_flyt {
     0% {bottom:-10%;left:45%;bottom:-10%;left:45%;}
     100% {bottom:-40%;left:77%;}
 }
 
+@keyframes busted {
+    0% {top:-80vw;}
+	100% {top:0vw;}
+}
+@keyframes zoom_telefon {
+    0% {width:40%;height:60%;}
+	100% {width:80%;height:95%;}
+}
 
 #h {display:none;width:45%;height:45%;position:absolute;top:10%;left:20%;background-size:cover;background:url("billeder/h.gif") no-repeat;border-radius:50%;background-position:40% 40%;}
