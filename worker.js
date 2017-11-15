@@ -56,10 +56,10 @@ function videresend_besked() {
   $("#game").css("background", "url(billeder/vindue.svg) no-repeat");
   $("#telefon").css("display", "none"); 
   $("#haand_fri").css("display", "none");
-  var showTime = 1000; // Vis hver baggrund i antal sekunder før vi skifter til næste
+  var showTime = 600; // Vis hver baggrund i antal sekunder før vi skifter til næste
   for (videresendSprite=2;videresendSprite<=21;videresendSprite++) {
 	var changeTime = videresendSprite*showTime;
-	preload_svg('billeder/city/city_sprite_' +videresendSprite + '.svg'); // Sådan undgår vi at det blinker...
+	preload_image('billeder/city/city_sprite_' +videresendSprite + '.svg'); // Sådan undgår vi at det blinker...
 	show_sprite(videresendSprite, changeTime);
   }
   setTimeout(goToJail,changeTime+1000);
@@ -82,17 +82,31 @@ function goToJail() {
 	setTimeout(function(){
 	  $("#game").css("background", "url(billeder/"+valg+"_tremmer.svg) no-repeat");
 	  $.stopSound('lyd/bensound-sexy.mp3'); // Credits: bensound.com
-	  setTimeout(function(){
-	    
-	  },4000);
+	  roll_moral(); // Viser moral boksene
 	},4000);
 }
 
+function roll_moral() {
+  preload_image('billeder/moralebokse/orangeboks1.svg');
+  preload_image('billeder/moralebokse/orangeboks2.svg');
+  preload_image('billeder/moralebokse/orangeboks3.svg');
+  setTimeout(function(){$("#blaa_boks").css("display", "block");},1000);
+  setTimeout(function(){$("#orangeboks").css("display", "block");},4000);
+  setTimeout(function(){$("#orangeboks").css("background", "url(billeder/moralebokse/orangeboks2.svg) no-repeat");},7000);
+  setTimeout(function(){$("#orangeboks").css("background", "url(billeder/moralebokse/orangeboks3.svg) no-repeat");},10000);
+  
+  setTimeout(roll_credits, 13000);
+}
+
 function roll_credits() {
+  setTimeout(function(){$("#blaa_boks").css("display", "none");},1000);
+  setTimeout(function(){$("#orangeboks").css("display", "none");},4000);
+  $("#game").css("background", "url(billeder/city/city_sprite_1.svg) no-repeat"); // Vis city sprite imens credits køre
+  
   var showTime = 4000; // Vis hver item i antal sekunder før vi skifter til næste
   show_credit_item(1, 100);
   for (i=2;i<=5;i++) {
-	var changeTime = i*showTime;
+	var changeTime = i*showTime; // ShowTime ganges med tælleren for at baggrundende ikke vises på samme tid 
     show_credit_item(i, changeTime);
   }
   show_credit_item(item, changeTime);
@@ -119,7 +133,7 @@ function show_sprite(bgSprite, changeTime) {
 	    }
 	  }, changeTime);
 }
-function preload_svg(svgFile) {
+function preload_image(svgFile) {
 	  // Vi havde et problem hvor .svg billederne "blinkede", når de blev indlæst
 	  // det fandt vi ud af at undgå ved at lave en simpel pre-loader
 	return $(

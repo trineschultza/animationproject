@@ -1,18 +1,35 @@
-* {margin:0;padding:0;}
+/* 
+  Vær ops på problemer med æøå i filnavne.
+  Filer gemt med æøå vil ikke blive vist indlæst i browseren!!!
+   Muligvis et problem med karaktersæt, da CSS filen bliver gemt som UTF-8,
+   og karakterene i filnavne er et andet format...? Kan også være browseren som læser CSS filen i et forkert format.
+  
+  Brug i stedet:
+   aa=å
+   ae=æ
+   oe=ø
+*/
+
+* {margin:0;padding:0;} /* reset styles */
 body,html {width:100%;height:100%;overflow:hidden;background:rgb(25,25,25);}
+
+/* Containere & diverse */
+#preloader {position:absolute;top:-1px;}
 #scene {width:80vw;height:45vw;margin:0.2em auto;overflow:hidden;}
 #game {display:none;background:url("billeder/vindue.svg") no-repeat;width:100%;height:100%;background-size:cover;background-position:0% 0;position:relative;}
 #startside {width:100%;height:100%;background:url("billeder/startside.svg") no-repeat;background-size:contain;position:relative;}
-#startside #startButton {position:absolute;bottom:5%;right:3%;}
 
+/* Objekter */
 #game #dreng_figur {position:absolute;top:10%;left:20%;display:none;width:10%;height:40%;background:url("billeder/dreng.svg") no-repeat;}
 #game #pige_figur {position:absolute;top:10%;right:10%;display:none;width:10%;height:40%;background:url("billeder/pige.svg") no-repeat;}
-#game button#dreng {position:absolute;top:40%;left:10%;}
-#game button#pige {position:absolute;top:40%;right:10%;}
-
 #telefon {display:none;position:absolute;bottom:-0.2em;left:40%;width:40%;height:60%;background-size:contain;}
 #haand_fri {display:none;position:absolute;left:77%;bottom:-40%;width:30%;height:60%;background-size:contain;}
-  .haand_fri_pos {bottom:-10%;left:45%;}
+#dickpic {display:none;position:absolute;bottom:-0.2em;left:40%;width:40%;height:60%;background-size:contain;}
+
+/* Alle vores fantastiske knapper */
+#startside #startButton {position:absolute;bottom:5%;right:3%;}
+#game button#dreng {position:absolute;top:40%;left:10%;}
+#game button#pige {position:absolute;top:40%;right:10%;}
 button#snap_button {display:none;position:absolute;top:25%;left:17%;width:13%;height:14%;cursor:pointer;background:none;border:none;}
 button#videresend_button {display:none;position:absolute;bottom:40%;left:10%;width:20%;height:10%;background:rgba(0,0,0, 0.2);border:none;color:#fff;}
 button#slet_button {display:none;position:absolute;top:30%;left:10%;width:20%;height:10%;background:rgba(0,0,0, 0.2);border:none;color:#fff;}
@@ -21,16 +38,20 @@ button#videresend_button:hover {background:rgba(0,0,0, 0.4)}
 button:active {outline:none;border:none;}
 button:focus {outline:none;}
 button:hover {cursor:pointer;}
-#dickpic {display:none;position:absolute;bottom:-0.2em;left:40%;width:40%;height:60%;background-size:contain;}
-#preloader {position:absolute;top:-1px;}
 .button {width:30vw;height:10vw;background:rgba(247,147,30, 0.8);display:block;font-size:6vw;color:#fff;border:none;}
 .button:hover {background:rgba(250,250,250, 0.8);color:#000;}
 
-#blaa_boks {position:absolute;top:15%;left:10%;background:url("billeder/moralebokse/bl�boks.svg") no-repeat;}
-#orangeboks1 {position:absolute;top:15%;left:10%;background:url("billeder/moralebokse/bl�boks.svg") no-repeat;}
-#orangeboks2 {position:absolute;top:15%;left:10%;background:url("billeder/moralebokse/bl�boks.svg") no-repeat;}
-#orangeboks3 {position:absolute;top:15%;left:10%;background:url("billeder/moralebokse/bl�boks.svg") no-repeat;}
+/* Moral */
+#blaa_boks {position:absolute;top:15%;left:10%;width:50%;height:35%;background:url("billeder/moralebokse/blaaboks.svg") no-repeat;display:none;}
+#orangeboks {position:absolute;top:33%;left:27%;width:50%;height:35%;background:url("billeder/moralebokse/orangeboks1.svg") no-repeat;display:none;}
 
+/* Credits */
+#credits_roll {width:80vw;height:45vw;margin:0.2em auto;overflow:hidden;background:url("billeder/vindue.svg");position:relative;}
+#credits_roll div {font-size:1.2em;bottom:10%;right:10%;display:none;position:absolute;opacity:0;background:rgb(250,250,250);border-radius:1vw;}
+#credits_roll div img {width:25%;margin:1em;float:left;}
+#credits_roll div p {margin: 1em;}
+
+/* Animations */
 .flyt_pige_figur {animation:flyt_pige_figur 1s forwards;transform:scale(1, 1);}
 .flyt_dreng_figur {animation:flyt_dreng_figur 1s forwards;transform:scale(1, 1);}
 .valg_af_karakter {animation:valg_af_karakter 0.5s forwards;transform:scale(0.5, 0.5);}
@@ -39,6 +60,12 @@ button:hover {cursor:pointer;}
 .haand_fri_flyt {animation:haand_fri_flyt 3s forwards;}
 .busted {position:absolute;top:-80vw;animation:busted 3s forwards;}
 .zoom_telefon {animation:zoom_telefon 3s forwards;}
+.credits_roll {display:block;animation:credits_roll 6s forwards;opacity:0;}
+
+/* Klasser til at huske positioner */
+.haand_fri_pos {bottom:-10%;left:45%;} /* Bliver tilføjet til #haand_fri efter den er flyttet */
+
+/* Keyframes til animationer */
 @keyframes valg_af_karakter {
     from {top:40%;transform:scale(0.5, 0.5);}
     to {top:60%;transform:scale(1, 1);}
@@ -73,4 +100,10 @@ button:hover {cursor:pointer;}
 @keyframes zoom_telefon {
     0% {width:40%;height:60%;}
 	100% {width:80%;height:95%;}
+}
+@keyframes credits_roll {
+  0% {bottom:10%;right:10%;opacity:0;display:block;transform:scale(0.1,0.1);filter:blur(10px);}
+  40% {bottom:35%;right:30%;opacity:1;transform:scale(1,1);filter:blur(0px);}
+  50% {bottom:35%;right:30%;opacity:1;transform:scale(1,1);filter:blur(0px);}
+  100% {bottom:10%;right:85%;opacity:0;transform:scale(0.1,0.1);filter:blur(10px);}
 }
