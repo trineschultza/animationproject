@@ -3,7 +3,7 @@ function start() {
   // Spillet startes efter tryk på en knap.
   $("#startside").css("display", "none");
   $("#game").css("display", "block");
-  $.playSound('lyd/Drums1.mp3');
+  $.playSound('lyd/Drums1.mp3'); // Den har Jacob lavet :-D
   $("#dreng").addClass("valg_af_karakter");
   $("#pige").addClass("valg_af_karakter");
   $("#pige_figur").css("display", "block");
@@ -12,10 +12,10 @@ function start() {
 
 function KarakterValg(karakter) {
    // Før spillet starter, skal der vælges en karakter. Valget bliver husket i det globale variabel "valg",
-   // Som vi bruger senere til, blandt andet, at vælge grafik filer.
+   // Som vi senere bruger til, blandt andet, at vælge grafik filer.
    valg = karakter;
    $.stopSound('lyd/Drums1.mp3');
-   $.playSound('lyd/bensound-sexy.mp3', 'loop', 'music');
+   $.playSound('lyd/bensound-sexy.mp3', 'loop', 'music'); // Credits: bensound.com
    $("#dreng").css("display", "none");
    $("#pige").css("display", "none");
    $("#game").css("background", "url(billeder/"+valg+"værelse.svg) no-repeat");
@@ -81,8 +81,11 @@ function goToJail() {
 	$("#"+valg+"_figur").css("display", "none");
 	setTimeout(function(){
 	  $("#game").css("background", "url(billeder/"+valg+"_tremmer.svg) no-repeat");
-	  $.stopSound('lyd/bensound-sexy.mp3');
-	},4000)
+	  $.stopSound('lyd/bensound-sexy.mp3'); // Credits: bensound.com
+	  setTimeout(function(){
+	    
+	  },4000);
+	},4000);
 }
 
 function roll_credits() {
@@ -109,7 +112,7 @@ function show_sprite(bgSprite, changeTime) {
 	      $.playSound('lyd/adhvorklamt.mp3', false); // "Ad hvor klamt"
 	    } else if (bgSprite==13) { // city_sprite_13.svg
 	      $.playSound('lyd/hvorforsendermansådannoget.mp3', false); // "Hvorfor sender man sådan noget"
-	    } else if (bgSprite==17) { // city_sprite_13.svg
+	    } else if (bgSprite==17) { // city_sprite_17.svg
 	      $.playSound('lyd/fuckhvorpinligt.mp3', false); // "Fuck hvor pinligt!"
 	    } else if (bgSprite==21) { // city_sprite_21.svg
 	      $.playSound('lyd/hvemerdet.mp3', false); // "Hvem er det?!"
@@ -119,13 +122,13 @@ function show_sprite(bgSprite, changeTime) {
 function preload_svg(svgFile) {
 	  // Vi havde et problem hvor .svg billederne "blinkede", når de blev indlæst
 	  // det fandt vi ud af at undgå ved at lave en simpel pre-loader
-	  return $(
-	            '<div style="background:url('+svgFile+');width:1px;height:1px;"></div>'
-	          ).appendTo('#preloader');
+	return $(
+	         '<div style="background:url('+svgFile+');width:1px;height:1px;"></div>'
+	         ).appendTo('#preloader');
 	}
 (function ($) {
     $.extend({
-        playSound: function (sound_file, loop_audio=true, eID='') {
+        playSound: function (sound_file, loop_audio=true, eID='') { // fil - gentag - element id
         	if (eID !== '') {eID = ' id="' + eID + '"';}
 		    if (loop_audio==true){loop_audio=' loop';}
             return $(
