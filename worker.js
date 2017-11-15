@@ -52,96 +52,115 @@ function vis_besked() {
 }
 
 function videresend_besked() {
-  $("#music").prop("volume", 0.3);
-  $("#game").css("background", "url(billeder/vindue.svg) no-repeat");
   $("#telefon").css("display", "none"); 
   $("#haand_fri").css("display", "none");
-  var showTime = 600; // Vis hver baggrund i antal sekunder før vi skifter til næste
-  for (videresendSprite=2;videresendSprite<=21;videresendSprite++) {
-	var changeTime = videresendSprite*showTime;
-	preload_image('billeder/city/city_sprite_' +videresendSprite + '.svg'); // Sådan undgår vi at det blinker...
-	show_sprite(videresendSprite, changeTime);
-  }
-  setTimeout(goToJail,changeTime+1000);
-
+  // $("#game").addClass("fadeout");
+  $("#music").prop("volume", 0.3);
+  $("#game").css("background", "url(billeder/vindue.svg) no-repeat");
+  setTimeout(function(){
+     // $("#game").removeClass("fadeout");
+      var showTime = 600; // Vis hver baggrund i antal sekunder før vi skifter til næste
+      for (videresendSprite=2;videresendSprite<=21;videresendSprite++) {
+    	var changeTime = videresendSprite*showTime;
+    	preload_image('billeder/city/city_sprite_' +videresendSprite + '.svg'); // Sådan undgår vi at det blinker ved billedeskift...
+        show_sprite(videresendSprite, changeTime); // Vis billede efter preload
+      }
+      setTimeout(goToJail,changeTime+1000); // Viser fængsels-tremmer i værelse
+  }, 2000);
 }
 function slet_besked() {
-	$("#telefon").css("background", "url(billeder/"+valg+"hånd_besked.svg) no-repeat");
-	$("#telefon").addClass("zoom_telefon");
-	$("#videresend_button").css("display", "none");
-	$("#slet_button").css("display", "none");
+  $("#telefon").css("background", "url(billeder/"+valg+"hånd_besked.svg) no-repeat");
+  $("#telefon").addClass("zoom_telefon");
+  $("#videresend_button").css("display", "none");
+  $("#slet_button").css("display", "none");
+  setTimeout(function(){
+    roll_moral(); // Viser moral boksene
+  },4000);
 }
 
 function goToJail() {
-	$("#music").prop("volume", 1);
-	$("#scene").css("background", "url(billeder/"+valg+"værelse.svg) no-repeat");
-	$("#game").css("background", "url(billeder/tremmer.svg) no-repeat");
-	$.playSound('lyd/prison.mp3', false);
-	$("#game").addClass("busted");
-	$("#"+valg+"_figur").css("display", "none");
-	setTimeout(function(){
-	  $("#game").css("background", "url(billeder/"+valg+"_tremmer.svg) no-repeat");
-	  $.stopSound('lyd/bensound-sexy.mp3'); // Credits: bensound.com
+  $("#music").prop("volume", 1);
+  $("#scene").css("background", "url(billeder/"+valg+"værelse.svg) no-repeat");
+  $("#game").css("background", "url(billeder/tremmer.svg) no-repeat");
+  $.playSound('lyd/prison.mp3', false);
+  $("#game").addClass("busted");
+  $("#"+valg+"_figur").css("display", "none");
+  setTimeout(function(){
+    $("#game").css("background", "url(billeder/"+valg+"_tremmer.svg) no-repeat");
+	$.stopSound('lyd/bensound-sexy.mp3'); // Credits: bensound.com
 	  roll_moral(); // Viser moral boksene
 	},4000);
 }
 
 function roll_moral() {
-  preload_image('billeder/moralebokse/orangeboks1.svg');
+  preload_image('billeder/moralebokse/orangeboks1.svg'); // Preload billeder før de vises (for at undgå blinken)
   preload_image('billeder/moralebokse/orangeboks2.svg');
   preload_image('billeder/moralebokse/orangeboks3.svg');
   setTimeout(function(){$("#blaa_boks").css("display", "block");},1000);
   setTimeout(function(){$("#orangeboks").css("display", "block");},4000);
   setTimeout(function(){$("#orangeboks").css("background", "url(billeder/moralebokse/orangeboks2.svg) no-repeat");},7000);
   setTimeout(function(){$("#orangeboks").css("background", "url(billeder/moralebokse/orangeboks3.svg) no-repeat");},10000);
-  
-  setTimeout(roll_credits, 13000);
+  setTimeout(function(){
+	setTimeout(function(){
+	  $("#game").removeClass("fadeout");
+	  roll_credits();
+	  }, 1000);
+  }, 13000);
 }
 
 function roll_credits() {
-  setTimeout(function(){$("#blaa_boks").css("display", "none");},1000);
-  setTimeout(function(){$("#orangeboks").css("display", "none");},4000);
-  $("#game").css("background", "url(billeder/city/city_sprite_1.svg) no-repeat"); // Vis city sprite imens credits køre
+  $("#scene").css("background", "none");
+  $("#game").css("display", "none");
+  $.stopSound('lyd/bensound-sexy.mp3'); // Credits: bensound.com
+  $.playSound('lyd/bensound-littleidea.mp3'); // Credits: bensound.com
+  $("#credits_roll").css("display", "block");
   
   var showTime = 4000; // Vis hver item i antal sekunder før vi skifter til næste
   show_credit_item(1, 100);
-  for (i=2;i<=5;i++) {
+  for (i=2;i<=6;i++) {
 	var changeTime = i*showTime; // ShowTime ganges med tælleren for at baggrundende ikke vises på samme tid 
     show_credit_item(i, changeTime);
   }
-  show_credit_item(item, changeTime);
+  setTimeout(function(){
+    $("#credits_roll").addClass("fadeout");	  
+  },changeTime+6000);
+  setTimeout(function(){
+    location.reload(); // Genstart spillet
+  }, changeTime+8000);
 }
 function show_credit_item(item, changeTime) {
-  setTimeout(function(){
+  // **Samme koncept som i show_sprite() funktionen**
+  // Der laves en kopi af vores changeTime variabel i funktionen
+  // Hvilket gør det muligt at "forsinke" visningen af vores credit-items og city sprites
+  setTimeout(function() {
     $("#credits"+item).css("display", "block");
 	$("#credits"+item).addClass("credits_roll");
   }, changeTime);
 }
 
 function show_sprite(bgSprite, changeTime) {
-	  setTimeout(function(){
-	    $("#game").css("background", "url(billeder/city/city_sprite_"+bgSprite+".svg) no-repeat");
+  setTimeout(function() {
+    $("#game").css("background", "url(billeder/city/city_sprite_"+bgSprite+".svg) no-repeat");
 	    
-	    if (bgSprite==9) { // city_sprite_9.svg
-	      $.playSound('lyd/adhvorklamt.mp3', false); // "Ad hvor klamt"
-	    } else if (bgSprite==13) { // city_sprite_13.svg
-	      $.playSound('lyd/hvorforsendermansådannoget.mp3', false); // "Hvorfor sender man sådan noget"
-	    } else if (bgSprite==17) { // city_sprite_17.svg
-	      $.playSound('lyd/fuckhvorpinligt.mp3', false); // "Fuck hvor pinligt!"
-	    } else if (bgSprite==21) { // city_sprite_21.svg
-	      $.playSound('lyd/hvemerdet.mp3', false); // "Hvem er det?!"
-	    }
-	  }, changeTime);
+	if (bgSprite==9) { // city_sprite_9.svg
+	  $.playSound('lyd/adhvorklamt.mp3', false); // "Ad hvor klamt"
+	} else if (bgSprite==13) { // city_sprite_13.svg
+	  $.playSound('lyd/hvorforsendermansådannoget.mp3', false); // "Hvorfor sender man sådan noget"
+	} else if (bgSprite==17) { // city_sprite_17.svg
+	  $.playSound('lyd/fuckhvorpinligt.mp3', false); // "Fuck hvor pinligt!"
+	} else if (bgSprite==21) { // city_sprite_21.svg
+	  $.playSound('lyd/hvemerdet.mp3', false); // "Hvem er det?!"
+	}
+  }, changeTime);
 }
 function preload_image(svgFile) {
 	  // Vi havde et problem hvor .svg billederne "blinkede", når de blev indlæst
 	  // det fandt vi ud af at undgå ved at lave en simpel pre-loader
-	return $(
-	         '<div style="background:url('+svgFile+');width:1px;height:1px;"></div>'
-	         ).appendTo('#preloader');
-	}
+  return $('<div style="background:url('+svgFile+');width:1px;height:1px;"></div>').appendTo('#preloader');
+}
+
 (function ($) {
-    $.extend({
+	$.extend({
         playSound: function (sound_file, loop_audio=true, eID='') { // fil - gentag - element id
         	if (eID !== '') {eID = ' id="' + eID + '"';}
 		    if (loop_audio==true){loop_audio=' loop';}

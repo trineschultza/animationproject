@@ -42,14 +42,14 @@ button:hover {cursor:pointer;}
 .button:hover {background:rgba(250,250,250, 0.8);color:#000;}
 
 /* Moral */
-#blaa_boks {position:absolute;top:15%;left:10%;width:50%;height:35%;background:url("billeder/moralebokse/blaaboks.svg") no-repeat;display:none;}
-#orangeboks {position:absolute;top:33%;left:27%;width:50%;height:35%;background:url("billeder/moralebokse/orangeboks1.svg") no-repeat;display:none;}
+#blaa_boks {position:absolute;top:15%;left:2%;width:50%;height:35%;background:url("billeder/moralebokse/blaaboks.svg") no-repeat;display:none;opacity:0.9;}
+#orangeboks {position:absolute;top:33%;left:23%;width:50%;height:35%;background:url("billeder/moralebokse/orangeboks1.svg") no-repeat;display:none;opacity:0.9;}
 
 /* Credits */
-#credits_roll {width:80vw;height:45vw;margin:0.2em auto;overflow:hidden;background:url("billeder/vindue.svg");position:relative;}
-#credits_roll div {font-size:1.2em;bottom:10%;right:10%;display:none;position:absolute;opacity:0;background:rgb(250,250,250);border-radius:1vw;}
+#credits_roll {display:none;width:80vw;height:45vw;margin:0.2em auto;overflow:hidden;background:url("billeder/vindue.svg");position:relative;}
+#credits_roll div {width:40%;font-size:1.2em;bottom:10%;right:10%;display:none;position:absolute;opacity:0;background:rgb(250,250,250);border-radius:1vw;}
 #credits_roll div img {width:25%;margin:1em;float:left;}
-#credits_roll div p {margin: 1em;}
+#credits_roll div p {margin:1em;}
 
 /* Animations */
 .flyt_pige_figur {animation:flyt_pige_figur 1s forwards;transform:scale(1, 1);}
@@ -61,9 +61,20 @@ button:hover {cursor:pointer;}
 .busted {position:absolute;top:-80vw;animation:busted 3s forwards;}
 .zoom_telefon {animation:zoom_telefon 3s forwards;}
 .credits_roll {display:block;animation:credits_roll 6s forwards;opacity:0;}
+.fadeout {animation:fadeout 1s forwards;}
+.fadein {animation:fadeout 1s reverse;}
 
 /* Klasser til at huske positioner */
 .haand_fri_pos {bottom:-10%;left:45%;} /* Bliver tilføjet til #haand_fri efter den er flyttet */
+
+@keyframes fadeout {
+    0% {opacity:1;}
+    100% {opacity:0;}
+}
+@keyframes fadein {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
 
 /* Keyframes til animationer */
 @keyframes valg_af_karakter {
@@ -104,6 +115,6 @@ button:hover {cursor:pointer;}
 @keyframes credits_roll {
   0% {bottom:10%;right:10%;opacity:0;display:block;transform:scale(0.1,0.1);filter:blur(10px);}
   40% {bottom:35%;right:30%;opacity:1;transform:scale(1,1);filter:blur(0px);}
-  50% {bottom:35%;right:30%;opacity:1;transform:scale(1,1);filter:blur(0px);}
+  60% {bottom:35%;right:30%;opacity:1;transform:scale(1,1);filter:blur(0px);}
   100% {bottom:10%;right:85%;opacity:0;transform:scale(0.1,0.1);filter:blur(10px);}
 }
