@@ -1,9 +1,9 @@
-/* 
+/*
   Vær ops på problemer med æøå i filnavne.
   Filer gemt med æøå vil ikke blive vist indlæst i browseren!!!
    Muligvis et problem med karaktersæt, da CSS filen bliver gemt som UTF-8,
    og karakterene i filnavne er et andet format...? Kan også være browseren som læser CSS filen i et forkert format.
-  
+
   Brug i stedet:
    aa=å
    ae=æ
@@ -60,6 +60,7 @@ button:hover {cursor:pointer;}
 .haand_fri_flyt {animation:haand_fri_flyt 3s forwards;}
 .busted {position:absolute;top:-80vw;animation:busted 3s forwards;}
 .zoom_telefon {animation:zoom_telefon 3s forwards;}
+<<<<<<< HEAD
 .credits_roll {display:block;animation:credits_roll 6s forwards;opacity:0;}
 .fadeout {animation:fadeout 1s forwards;}
 .fadein {animation:fadein 1s forwards;}
@@ -77,6 +78,25 @@ button:hover {cursor:pointer;}
 }
 
 /* Keyframes til animationer */
+=======
+.credits_roll {display:block;animation:credits_roll 6s forwards;opacity:0;}
+.fadeout {animation:fadeout 1s forwards;}
+.fadein {animation:fadeout 1s reverse;}
+
+/* Klasser til at huske positioner */
+.haand_fri_pos {bottom:-10%;left:45%;} /* Bliver tilføjet til #haand_fri efter den er flyttet */
+
+@keyframes fadeout {
+    0% {opacity:1;}
+    100% {opacity:0;}
+}
+@keyframes fadein {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+/* Keyframes til animationer */
+>>>>>>> cb0baf94ab301d3b13e00491c6c704221e1607b9
 @keyframes valg_af_karakter {
     from {top:40%;transform:scale(0.5, 0.5);}
     to {top:60%;transform:scale(1, 1);}

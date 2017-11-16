@@ -2,7 +2,12 @@
 # https://help.github.com/articles/ignoring-files
 # Example .gitignore files: https://github.com/github/gitignore
 /bower_components/
+<<<<<<< HEAD
 /node_modules/
 
 .*
 !.gitignore
+=======
+/node_modules/
+/.DS_Store
+>>>>>>> cb0baf94ab301d3b13e00491c6c704221e1607b9
