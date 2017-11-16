@@ -62,7 +62,7 @@ button:hover {cursor:pointer;}
 .zoom_telefon {animation:zoom_telefon 3s forwards;}
 .credits_roll {display:block;animation:credits_roll 6s forwards;opacity:0;}
 .fadeout {animation:fadeout 1s forwards;}
-.fadein {animation:fadeout 1s reverse;}
+.fadein {animation:fadein 1s forwards;}
 
 /* Klasser til at huske positioner */
 .haand_fri_pos {bottom:-10%;left:45%;} /* Bliver tilføjet til #haand_fri efter den er flyttet */
