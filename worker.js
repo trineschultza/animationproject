@@ -38,6 +38,7 @@ function KarakterValg(karakter) {
     $("#pige").css("display", "none");
     $("#game").css("background", "url(billeder/" + valg + "værelse.svg) no-repeat");
     $("#" + valg + "_figur").addClass("flyt_dreng_figur");
+	$("#figur_ramme").css("display", "block");
     if (valg == "dreng") {
         $("#pige_figur").css("display", "none");
     } else {
@@ -81,8 +82,8 @@ function videresend_besked() {
     $("#game").css("background", "url(billeder/vindue.svg) no-repeat");
     setTimeout(function () {
         // $("#game").removeClass("fadeout");
-        var showTime = 600; // Vis hver baggrund i antal sekunder før vi skifter til næste
-        for (videresendSprite = 2; videresendSprite <= 21; videresendSprite++) {
+        var showTime = 600; // Vis hver baggrund i antal millisekunder før vi skifter til næste
+        for (videresendSprite = 2; videresendSprite <= 24; videresendSprite++) {
             var changeTime = videresendSprite * showTime;
             preload_image('billeder/city/city_sprite_' + videresendSprite + '.svg'); // Sådan undgår vi at det blinker ved billedeskift...
             show_sprite(videresendSprite, changeTime); // Vis billede efter preload
@@ -180,7 +181,7 @@ function show_sprite(bgSprite, changeTime) {
             $.playSound('lyd/hvorforsendermansådannoget.mp3', false); // "Hvorfor sender man sådan noget"
         } else if (bgSprite == 17) { // city_sprite_17.svg
             $.playSound('lyd/fuckhvorpinligt.mp3', false); // "Fuck hvor pinligt!"
-        } else if (bgSprite == 21) { // city_sprite_21.svg
+        } else if (bgSprite == 24) { // city_sprite_24.svg
             $.playSound('lyd/hvemerdet.mp3', false); // "Hvem er det?!"
         }
     }, changeTime);

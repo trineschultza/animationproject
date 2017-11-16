@@ -25,6 +25,7 @@ body,html {width:100%;height:100%;overflow:hidden;background:rgb(25,25,25);}
 #telefon {display:none;position:absolute;bottom:-0.2em;left:40%;width:40%;height:60%;background-size:contain;}
 #haand_fri {display:none;position:absolute;left:77%;bottom:-40%;width:30%;height:60%;background-size:contain;}
 #dickpic {display:none;position:absolute;bottom:-0.2em;left:40%;width:40%;height:60%;background-size:contain;}
+#figur_ramme {display:none;position:absolute;top:2%;right:2%;background:url("billeder/bokstilfigur.svg") no-repeat;width:15%;height:35%;}
 
 /* Alle vores fantastiske knapper */
 #startside #startButton {position:absolute;bottom:5%;right:3%;}
@@ -101,11 +102,11 @@ button:hover {cursor:pointer;}
 }
 @keyframes flyt_pige_figur {
     from {top:10%;right:10%;transform:scale(1, 1);}
-    to {top:85%;right:5%;transform:scale(2, 2);}
+    to {top:3%;right:3%;transform:scale(1, 1);}
 }
 @keyframes flyt_dreng_figur {
     from {top:10%;left:20%;transform:scale(1, 1);}
-    to {top:85%;left:84%;transform:scale(2, 2);}
+    to {top:3%;left:84%;transform:scale(1, 1);}
 }
 @keyframes modtag_besked {
     from {transform:rotate(1deg)}
