@@ -101,11 +101,11 @@ button:hover {cursor:pointer;}
 }
 @keyframes flyt_pige_figur {
     from {top:10%;right:10%;transform:scale(1, 1);}
-    to {top:3%;right:3%;transform:scale(1, 1);}
+    to {top:3%;right:3%;transform:scale(0.8, 0.8);}
 }
 @keyframes flyt_dreng_figur {
     from {top:10%;left:20%;transform:scale(1, 1);}
-    to {top:3%;left:84%;transform:scale(1, 1);}
+    to {top:3%;left:84%;transform:scale(0.8, 0.8);}
 }
 @keyframes modtag_besked {
     from {transform:rotate(1deg)}

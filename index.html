@@ -3,13 +3,15 @@
 
   <head>
     <meta charset="utf-8">
+	<meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#MinGrænse | Sex og Samfund</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
 </head>
 
 <body>
-    <div id="scene">
+    <div id="scene" onLoad="preloader()">
 
 	 <div id="startside" class="fadein"><button id="startButton" onClick="start()" class="button">Start</button></div>
 	 <div id="game">
@@ -65,8 +67,52 @@
       </div>
      </div>
 	</div>
-	<div id="preloader"></div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+	<div id="preloader">
+	<div class="hidden">
+<script type="text/javascript">
+		<!--//--><![CDATA[//><!--
+			var images = new Array()
+			function preload() {
+				for (i = 0; i < preload.arguments.length; i++) {
+					images[i] = new Image()
+					images[i].src = preload.arguments[i]
+				}
+			}
+			preload(
+                "https://kea.beamtic.com/animation/020403/billeder/drengværelse.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/pigeværelse.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_1.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_2.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_3.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_4.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_5.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_6.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_7.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_8.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_9.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_10.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_11.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_12.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_13.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_14.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_15.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_16.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_17.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_18.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_19.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_20.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_21.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_22.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_23.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/city/city_sprite_24.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/moralebokse/orangeboks1.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/moralebokse/orangeboks2.svg",
+				"https://kea.beamtic.com/animation/020403/billeder/moralebokse/orangeboks3.svg"
+			)
+		//--><!]]>
+	</script>
+	</div>
+	</div>
     <script src="worker.js" type="text/javascript"></script>
 </body>
 

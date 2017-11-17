@@ -1,6 +1,5 @@
 var valg;
-
-function start() {
+function preloader() {
     preload_image('billeder/dickpic.svg');
     preload_image('billeder/dreng_arme.svg');
     preload_image('billeder/dreng_dickpic.svg');
@@ -16,8 +15,9 @@ function start() {
     preload_image('billeder/pigehånd_facebook.svg');
     preload_image('billeder/pigehånd_snap.svg');
     preload_image('billeder/pigehånd2.svg');
-    preload_image('billeder/vindue.svg');
-
+    preload_image('billeder/vindue.svg');	
+}
+function start() {
     // Spillet startes efter tryk på en knap.
     $("#startside").css("display", "none");
     $("#game").css("display", "block");
@@ -80,12 +80,14 @@ function videresend_besked() {
     // $("#game").addClass("fadeout");
     $("#music").prop("volume", 0.3);
     $("#game").css("background", "url(billeder/vindue.svg) no-repeat");
+    $("#" + valg + "_figur").css("display", "none");
+    $("#figur_ramme").css("display", "none");
     setTimeout(function () {
         // $("#game").removeClass("fadeout");
         var showTime = 600; // Vis hver baggrund i antal millisekunder før vi skifter til næste
         for (videresendSprite = 2; videresendSprite <= 24; videresendSprite++) {
             var changeTime = videresendSprite * showTime;
-            preload_image('billeder/city/city_sprite_' + videresendSprite + '.svg'); // Sådan undgår vi at det blinker ved billedeskift...
+            // preload_image('billeder/city/city_sprite_' + videresendSprite + '.svg'); // Sådan undgår vi at det blinker ved billedeskift...
             show_sprite(videresendSprite, changeTime); // Vis billede efter preload
         }
         setTimeout(goToJail, changeTime + 1000); // Viser fængsels-tremmer i værelse
@@ -108,7 +110,6 @@ function goToJail() {
     $("#game").css("background", "url(billeder/tremmer.svg) no-repeat");
     $.playSound('lyd/prison.mp3', false);
     $("#game").addClass("busted");
-    $("#" + valg + "_figur").css("display", "none");
     setTimeout(function () {
         $("#game").css("background", "url(billeder/" + valg + "_tremmer.svg) no-repeat");
         $.stopSound('lyd/bensound-sexy.mp3'); // Credits: bensound.com
@@ -117,9 +118,9 @@ function goToJail() {
 }
 
 function roll_moral() {
-    preload_image('billeder/moralebokse/orangeboks1.svg'); // Preload billeder før de vises (for at undgå blinken)
-    preload_image('billeder/moralebokse/orangeboks2.svg');
-    preload_image('billeder/moralebokse/orangeboks3.svg');
+    // preload_image('billeder/moralebokse/orangeboks1.svg'); // Preload billeder før de vises (for at undgå blinken)
+    // preload_image('billeder/moralebokse/orangeboks2.svg');
+    // preload_image('billeder/moralebokse/orangeboks3.svg');
     setTimeout(function () {
         $("#blaa_boks").css("display", "block");
     }, 1000);
